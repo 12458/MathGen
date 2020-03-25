@@ -1,9 +1,0 @@
-\item The function $\text{f}$ is defined as follows.\[\text{f}:x\mapsto\frac{1}{x^{2}-1},\,\text{for }x\in\mathbb{R},\,x\neq-1,\,x\neq1.\]\begin{description}[leftmargin=!,labelwidth=2em]\item [{(i)}] Sketch the graph of $y=\text{f}(x)$. \hfill{}{[}1{]}\item [{(ii)}] If the domain of $\text{f}$ is further restricted to $x\geq k$,state with a reason the least value of $k$ for which the function$\text{f}^{-1}$ exists.\hfill{} {[}2{]}\end{description}In the rest of the question, the domain of $f$ is $x\in\mathbb{R}$,$x\neq-1$, $x\neq1$, as originally defined. \\The function $\text{g}$ is defined as follows. \[\text{g}:x\mapsto\frac{1}{x-3},\,\text{for }x\in\mathbb{R},\,x\neq2,\,x\neq3,\,x\neq4.\]\begin{description}[leftmargin=!,labelwidth=2em]\item [{(iii)}] Show that $\text{fg}(x)=\frac{\left(x-3\right)^{2}}{\left(4-x\right)\left(x-2\right)}$.\hfill{}{[}2{]} \item [{(iv)}] Solve the inequality $\text{fg}(x)>0$. \hfill{}{[}3{]} \item [{(v)}] Find the range of $\text{fg}$. \hfill{}{[}4{]} \end{description}
-
- \hfill{} [ALVL/2010/2/2]
-
-\item The curve $C_{1}$ has equation $y=\frac{x-2}{x+1}$. The curve $C_{2}$has equation $\frac{x^{2}}{6}+\frac{y^{2}}{3}=1$. \begin{description}[leftmargin=!,labelwidth=2em]\item [{(i)}] Sketch $C_{1}$ and $C_{2}$ on the same diagram, statingthe exact coordinates of any points of intersection with the axesand the equations of any asymptotes. \hfill{}{[}4{]} \item [{(ii)}] Show algebraically that the $x$-coordinates of the pointsof intersection of $C_{1}$ and $C_{2}$ satisfy the equation $2\left(x-2\right)^{2}=\left(x+2\right)^{2}\left(6-x^{2}\right)$.\hfill{}{[}2{]} \item [{(iii)}] Use your calculator to find these $x$-coordinates. \hfill{}{[}2{]} \end{description}
-
- \hfill{} [ALVL/2010/1/1]
-
-\end{enumerate} \end{document}
