@@ -1,0 +1,43 @@
+\documentclass[oneside,english]{amsart}
+\usepackage{mathptmx}
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\ttdefault}{cmtt}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.8cm,bmargin=4cm,lmargin=2.5cm,rmargin=2.5cm}
+\usepackage{enumitem}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{graphicx}
+\doublespacing
+
+\makeatletter
+
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+\providecommand{\tabularnewline}{\\}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+\renewcommand{\descriptionlabel}[1]{%
+  \hspace\labelsep \upshape\bfseries #1%
+}
+
+
+\usepackage{enumitem}
+\setenumerate[1]{label=\textbf{\arabic*}}
+
+\usepackage{scrextend}
+
+\setlist[enumerate]{itemsep=15pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
