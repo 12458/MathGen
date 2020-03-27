@@ -4,7 +4,7 @@ import binpacking
 import random
 
 db = sqlite3.connect(':memory:')
-db = sqlite3.connect('C:/Users/Dropbox/math_alevel.db')
+db = sqlite3.connect('math_alevel_2019.db')
 #db = sqlite3.connect('E:/Dropbox/math_alevel.db')
 cursor = db.cursor()
 
@@ -43,10 +43,10 @@ questionpack = binpacking.to_constant_volume(
     questions, 20, weight_pos=1, lower_bound=None, upper_bound=None)
 
 
-inF = open("C:/Users/Dropbox/2019/latex_preamble.txt", "r")
+inF = open("assets/latex_preamble.txt", "r")
 lines = inF.readlines()
 
-outF = open("C:/Users/Dropbox/2019/latex_recommender.txt", "w")
+outF = open("assets/latex_recommender.txt", "w")
 outF.writelines(lines)
 
 #outF = open("E:/Dropbox/myOutFile.txt", "w")
