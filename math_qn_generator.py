@@ -2,6 +2,8 @@ import sqlite3
 #pip install binpacking
 import binpacking
 import random
+#pip install latex
+#from latex import build_pdf
 
 db = sqlite3.connect(':memory:')
 db = sqlite3.connect('math_alevel_2019.db')
@@ -71,4 +73,6 @@ for p in questionpack[random.randint(0, len(questionpack)-1)]:
 outF.write("\end{enumerate} \end{document}")
 outF.close()
 
+#pdf = build_pdf(open('outF.latex'))
+#pdf.save_to("qn.pdf")
 db.close()
