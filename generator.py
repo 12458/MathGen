@@ -6,7 +6,7 @@ def generate(criteria):
         import random
         #pip install latex
         from latex import build_pdf
-        import latex2mathml.converter
+        #import latex2mathml.converter
 
         db = sqlite3.connect(':memory:')
         db = sqlite3.connect('math_alevel_2019.db')
@@ -71,7 +71,7 @@ def generate(criteria):
 
         
         db.close()
-        with open("assets/latex_recommender.txt", "r") as f:
+        with open("assets/test.txt", "r") as f:
             pdf = build_pdf(f.read())
             path = "static/qn.pdf"
             pdf.save_to(path)
