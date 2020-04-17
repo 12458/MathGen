@@ -1,10 +1,10 @@
 def generate(criteria):
     try:
         import sqlite3
-        #TO INSTALL : pip install binpacking
+        # TO INSTALL : pip install binpacking
         import binpacking
         import random
-        #pip install latex
+        # pip install latex
         from latex import build_pdf
         #import latex2mathml.converter
 
@@ -43,7 +43,8 @@ def generate(criteria):
         #                   ''')
         questions = cursor.fetchall()
 
-        questionpack = binpacking.to_constant_volume(questions, 20, weight_pos=1, lower_bound=None, upper_bound=None)
+        questionpack = binpacking.to_constant_volume(
+            questions, 20, weight_pos=1, lower_bound=None, upper_bound=None)
         with open("assets/latex_preamble.txt", "r") as inF:
             lines = inF.readlines()
         with open("assets/latex_recommender.txt", "w") as outF:
@@ -65,11 +66,10 @@ def generate(criteria):
                 for i in range(len(currentQ)):
                     if currentQ[i].strip() != "":
                         finalQ += currentQ[i]
-                outF.write(finalQ + "\n\n" + " \hfill{} " + "["+str(p[3])+"/"+str(p[4])+"/"+str(p[5])+"/"+str(p[5]) + "]\n\n")
+                outF.write(finalQ + "\n\n" + " \hfill{} " +
+                           "["+str(p[3])+"/"+str(p[4])+"/"+str(p[5])+"/"+str(p[5]) + "]\n\n")
 
             outF.write("\end{enumerate} \end{document}")
-
-        
         db.close()
         with open("assets/test.txt", "r") as f:
             pdf = build_pdf(f.read())
