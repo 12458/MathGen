@@ -5,7 +5,7 @@ def generate(criteria):
         import binpacking
         import random
         #pip install latex
-        #from latex import build_pdf
+        from latex import build_pdf
         import latex2mathml.converter
 
         db = sqlite3.connect(':memory:')
@@ -69,11 +69,12 @@ def generate(criteria):
 
             outF.write("\end{enumerate} \end{document}")
 
-        #pdf = build_pdf(open('outF.latex'))
-        #pdf.save_to("qn.pdf")
+        
         db.close()
         with open("assets/latex_recommender.txt", "r") as f:
-            mathml_output = latex2mathml.converter.convert(f.read())
-            return mathml_output
+            pdf = build_pdf(f.read())
+            path = "static/qn.pdf"
+            pdf.save_to(path)
+            return path
     except Exception as e:
         return str(e)

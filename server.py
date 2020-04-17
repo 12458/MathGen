@@ -17,7 +17,7 @@ def home():
 @app.route("/submit", methods=["POST"])
 def submit():
     # Python dictionary object
-    return generator.generate(str(request.form['topic']))
+    return generator.generate(request.form['topic'])
 
 
 app.run()  # infinite loop
