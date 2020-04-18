@@ -2,11 +2,10 @@ def generate(criteria):
     try:
         import sqlite3
         # TO INSTALL : pip install binpacking
+        # pip install latex
         import binpacking
         import random
-        # pip install latex
         from latex import build_pdf
-        #import latex2mathml.converter
 
         db = sqlite3.connect(':memory:')
         db = sqlite3.connect('math_alevel_2019.db')
@@ -77,4 +76,4 @@ def generate(criteria):
             pdf.save_to(path)
             return path
     except Exception as e:
-        return str(e)
+        return "Error: " + str(e)

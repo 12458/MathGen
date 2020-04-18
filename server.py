@@ -1,29 +1,27 @@
 import generator
-from flask import Flask  # Class
+from flask import Flask
 from flask import request
-from flask import render_template  # Function
+from flask import render_template
 from flask import redirect
 from flask import send_file, current_app as app
-# Object[class must init while obj has already created]
-#from flask import request
 
-app = Flask(__name__)  # __main__ server.py is the main function
-# anything that have __ __ they are keyword and they are already defined
 
-# Make this a ViewFunction
-# @app.route("/") Python syntax : do something before the function is invoked -- decorator
+app = Flask(__name__)
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
+
 path = "static/qn.pdf"
 @app.route("/submit", methods=["POST"])
 def submit():
-    # Python dictionary object
     global path
     path = generator.generate(request.form['topic'])
     print(path)
-    return redirect('static/', code=302)
+    return path
+
 
 @app.route('/static/')
 def show_static_pdf():
@@ -34,4 +32,4 @@ def show_static_pdf():
         return send_file(static_file, attachment_filename='file.pdf')
 
 
-app.run()  # infinite loop
+app.run()
