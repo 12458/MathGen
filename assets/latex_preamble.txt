@@ -1,4 +1,4 @@
-\documentclass[oneside,english]{amsart}
+\documentclass[oneside]{amsart}
 \usepackage{mathptmx}
 \renewcommand{\sfdefault}{cmss}
 \renewcommand{\ttdefault}{cmtt}
@@ -39,5 +39,6 @@
 
 \makeatother
 
-\usepackage{babel}
+\usepackage[english]{babel}
 \begin{document}
+\begin{enumerate}
