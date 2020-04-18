@@ -39,5 +39,6 @@
 
 \makeatother
 
-\usepackage{babel}
+\usepackage[english]{babel}
 \begin{document}
+\begin{enumerate}

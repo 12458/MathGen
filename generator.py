@@ -70,7 +70,7 @@ def generate(criteria):
 
             outF.write("\end{enumerate} \end{document}")
         db.close()
-        with open("assets/test.txt", "r") as f:
+        with open("assets/latex_recommender.txt", "r") as f:
             pdf = build_pdf(f.read())
             path = "static/qn.pdf"
             pdf.save_to(path)
