@@ -49,7 +49,7 @@ def generate(criteria, database_location, path_folder):
             lines = inF.readlines()
         # Implement direct latex parsing
         latex_code = ""
-        latex_code += str(lines)
+        latex_code += ''.join(lines)
         for p in questionpack[random.randint(0, len(questionpack)-1)]:
             currentQ = p[0].split("\n")
             finalQ = ""
