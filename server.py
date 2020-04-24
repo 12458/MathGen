@@ -18,9 +18,9 @@ path = "static/qn.pdf"
 @app.route("/submit", methods=["POST"])
 def submit():
     global path
-    path = generator.generate(request.form['topic'], "math_alevel_2019.db", "static/qn.pdf")
-    print(path)
-    return render_template("pdf.html", url=path)
+    saved_path = generator.generate(request.form['topic'], "math_alevel_2019.db", "static")
+    print(saved_path)
+    return render_template("pdf.html", url=saved_path)
 
 
 # @app.route('/static/')
