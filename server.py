@@ -4,7 +4,8 @@ from flask import request
 from flask import render_template
 from flask import redirect
 from flask import send_file, current_app as app
-
+database = "math_alevel_2019.db"
+folder = "static"
 
 app = Flask(__name__)
 
@@ -17,17 +18,8 @@ def home():
 path = "static/qn.pdf"
 @app.route("/submit", methods=["POST"])
 def submit():
-    global path
-    saved_path = generator.generate(request.form['topic'], "math_alevel_2019.db", "static")
-    print(saved_path)
+    saved_path = generator.generate(request.form['topic'], database, folder)
     return render_template("pdf.html", url=saved_path)
-
-
-# @app.route('/static/')
-# def show_static_pdf():
-#     global path
-#     print(path)
-#     return render_template("pdf.html", url=path)
 
 
 app.run()

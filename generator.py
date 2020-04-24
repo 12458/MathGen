@@ -20,7 +20,8 @@ def generate(criteria, database_location, path_folder):
                         FROM questions_only_wip 
                         WHERE question IN (SELECT question FROM questions_only_wip ORDER BY RANDOM() LIMIT 100) 
                         '''
-        sql_statement = sql_statement + 'AND skill LIKE "%' + criteria[0]+'%"\n'
+        sql_statement = sql_statement + \
+            'AND skill LIKE "%' + criteria[0]+'%"\n'
 
         if criteria[1:] != []:
             for x in criteria[1:]:
@@ -56,10 +57,11 @@ def generate(criteria, database_location, path_folder):
             for i in range(len(currentQ)):
                 if currentQ[i].strip() != "":
                     finalQ += currentQ[i]
-            latex_code += finalQ + "\n\n" + " \hfill{} " + "["+str(p[3])+"/"+str(p[4])+"/"+str(p[5])+"/"+str(p[5]) + "]\n\n"
+            latex_code += finalQ + "\n\n" + " \hfill{} " + \
+                "["+str(p[3])+"/"+str(p[4])+"/" + \
+                str(p[5])+"/"+str(p[5]) + "]\n\n"
         latex_code += "\end{enumerate} \end{document}"
-        print(latex_code)        
-        
+
         # with open("assets/latex_recommender.txt", "w") as outF:
         #     outF.writelines(lines)
 
