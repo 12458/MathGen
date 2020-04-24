@@ -48,17 +48,17 @@ def generate(criteria, database_location, path_folder):
         with open("assets/latex_preamble.txt", "r") as inF:
             lines = inF.readlines()
         # Implement direct latex parsing
-        latex_code = []
-        latex_code.append(lines)
+        latex_code = ""
+        latex_code += str(lines)
         for p in questionpack[random.randint(0, len(questionpack)-1)]:
             currentQ = p[0].split("\n")
             finalQ = ""
             for i in range(len(currentQ)):
                 if currentQ[i].strip() != "":
                     finalQ += currentQ[i]
-            latex_code.append(finalQ + "\n\n" + " \hfill{} " +
-                        "["+str(p[3])+"/"+str(p[4])+"/"+str(p[5])+"/"+str(p[5]) + "]\n\n")
-        latex_code.append("\end{enumerate} \end{document}")        
+                latex_code += finalQ + "\n\n" + " \hfill{} " + "["+str(p[3])+"/"+str(p[4])+"/"+str(p[5])+"/"+str(p[5]) + "]\n\n"
+        latex_code += "\end{enumerate} \end{document}"
+        print(latex_code)        
         
         # with open("assets/latex_recommender.txt", "w") as outF:
         #     outF.writelines(lines)
@@ -84,7 +84,7 @@ def generate(criteria, database_location, path_folder):
         #     outF.write("\end{enumerate} \end{document}")
 
         db.close()
-        pdf = build_pdf("".join(latex_code))
+        pdf = build_pdf(latex_code)
         saved_path = f"{path_folder}/{hash(pdf)}.pdf"
         pdf.save_to(saved_path)
         return saved_path
