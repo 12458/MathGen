@@ -20,16 +20,14 @@ def submit():
     global path
     path = generator.generate(request.form['topic'])
     print(path)
-    return path
+    return render_template("pdf.html", url=path)
 
 
-@app.route('/static/')
-def show_static_pdf():
-    global path
-    print(path)
-    with open(path, 'rb') as static_file:
-        print(static_file.read())
-        return send_file(static_file, attachment_filename='file.pdf')
+# @app.route('/static/')
+# def show_static_pdf():
+#     global path
+#     print(path)
+#     return render_template("pdf.html", url=path)
 
 
 app.run()
