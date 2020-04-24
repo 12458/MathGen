@@ -1,4 +1,4 @@
-def generate(criteria):
+def generate(criteria, database_location, path):
     try:
         import sqlite3
         # TO INSTALL : pip install binpacking
@@ -7,23 +7,23 @@ def generate(criteria):
         import random
         from latex import build_pdf
 
-        db = sqlite3.connect(':memory:')
-        db = sqlite3.connect('math_alevel_2019.db')
-        #db = sqlite3.connect('E:/Dropbox/math_alevel.db')
+        # db = sqlite3.connect(':memory:')
+        db = sqlite3.connect(database_location)  # 'math_alevel_2019.db'
+        # db = sqlite3.connect('E:/Dropbox/math_alevel.db')
         cursor = db.cursor()
 
-        #criteria = input("Please input your desired topic or skills, separated by commas e.g Differentiation, 1.2.1 \n\n")
+        # criteria = input("Please input your desired topic or skills, separated by commas e.g Differentiation, 1.2.1 \n\n")
         criteria = criteria.split(",")
 
         sql_statement = '''SELECT question, mark, skill, type, year, paper, question_no
                         FROM questions_only_wip 
                         WHERE question IN (SELECT question FROM questions_only_wip ORDER BY RANDOM() LIMIT 100) 
                         '''
-        sql_statement = sql_statement+'AND skill LIKE "%'+criteria[0]+'%"\n'
+        sql_statement = sql_statement + 'AND skill LIKE "%' + criteria[0]+'%"\n'
 
         if criteria[1:] != []:
             for x in criteria[1:]:
-                sql_statement = sql_statement+'OR skill LIKE "%' + x + '%"\n'
+                sql_statement = sql_statement + 'OR skill LIKE "%' + x + '%"\n'
         # skill=[]
         # for c in criteria:
 
@@ -58,7 +58,7 @@ def generate(criteria):
             #            finalQ += currentQ[i]
             #    outF.write(finalQ + "\n\n")
 
-            # write line to output file
+            # Write line to output file
             for p in questionpack[random.randint(0, len(questionpack)-1)]:
                 currentQ = p[0].split("\n")
                 finalQ = ""
@@ -67,12 +67,10 @@ def generate(criteria):
                         finalQ += currentQ[i]
                 outF.write(finalQ + "\n\n" + " \hfill{} " +
                            "["+str(p[3])+"/"+str(p[4])+"/"+str(p[5])+"/"+str(p[5]) + "]\n\n")
-
             outF.write("\end{enumerate} \end{document}")
         db.close()
         with open("assets/latex_recommender.txt", "r") as f:
             pdf = build_pdf(f.read())
-            path = "static/qn.pdf"
             pdf.save_to(path)
             return path
     except Exception as e:
