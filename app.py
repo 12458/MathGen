@@ -21,5 +21,5 @@ def submit():
     saved_path = generator.generate(request.form['topic'], database, folder)
     return render_template("pdf.html", url=saved_path)
 
-
-app.run()
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -2,43 +2,41 @@
 <html lang="en">
 
 <head>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    form {
-      width: 30%;
-      margin: auto;
-      border: black 1px solid;
-      border-radius: 10px;
-    }
-
-    .row {
-      display: flex;
-      padding: 0.5em;
-      justify-content: space-evenly;
-    }
-
-    label {
-      margin: 0.5em;
-      width: 30%;
-    }
-
-    .textbox,
-    input {
-      margin: 0.5em;
-      width: 40%;
-    }
-  </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<meta charset="UTF-8" />
+	<title>Document</title>
 </head>
 
 <body>
-  <form action="/submit" method="POST">
-    <div class="row"><label>Topic</label> <input name="topic" type="text" /></div>
-    <div class="row"><button type="submit">Save</button> <button type="reset">Cancel</button></div>
-  </form>
+	<nav class="navbar is-white topNav" role="navigation" aria-label="dropdown navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="/">
+				MathGen
+			</a>
+			<div class="navbar-burger burger" data-target="topNav">
+			</div>
+		</div>
+	</nav>
+	<section>
+		<div class="container">
+			<div class="box">
+				<form action="/submit" method="POST">
+					<div class="field">
+						<label class="label">Topic Number</label>
+						<div class="control">
+							<input class="input" type="text" name="topic" placeholder="e.g. 1.1.1">
+						</div>
+					</div>
+					<div class="control">
+						<button class="button is-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</section>
 </body>
-
 </html>
