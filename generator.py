@@ -5,6 +5,7 @@ def generate(criteria, database_location, path_folder):
         import random
         from latex import build_pdf
         import hashlib
+        import time
 
         db = sqlite3.connect(database_location)
 
@@ -43,7 +44,7 @@ def generate(criteria, database_location, path_folder):
         latex_code += "\end{enumerate} \end{document}"
         db.close()
         pdf = build_pdf(latex_code)
-        saved_path = f"{path_folder}/{hash(pdf)}.pdf"
+        saved_path = f"{path_folder}/{hash(pdf)}.{time.time_ns()}.pdf"
         pdf.save_to(saved_path)
         return saved_path
 
